@@ -1,9 +1,8 @@
 package com.libraryapi;
 
-import com.libraryapi.controller.HomeController;
+import com.libraryapi.controller.ApiController;
 import com.sun.net.httpserver.HttpServer;
 import com.sun.net.httpserver.HttpContext;
-import com.sun.net.httpserver.HttpExchange;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -19,7 +18,7 @@ public class App {
                     0
 
             );
-            HttpContext homeController = server.createContext("/", new HomeController());
+            HttpContext homeController = server.createContext("/", new ApiController());
             server.start();
             System.out.println("[OK] Server ON");
         }
