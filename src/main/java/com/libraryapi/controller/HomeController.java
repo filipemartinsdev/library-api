@@ -11,13 +11,17 @@ public class HomeController implements HttpHandler {
         switch (httpExchange.getRequestMethod()){
             case "GET" -> processGet(httpExchange);
             case "POST" -> processPost(httpExchange);
-            default: processDefault(httpExchange);
+            default -> processDefault(httpExchange);
         }
     }
 
-    private void processGet(HttpExchange httpExchange){}
+    private void processGet(HttpExchange httpExchange){
+        String path = httpExchange.getRequestURI().getPath().substring("GET".length());
+    }
 
-    private void processPost(HttpExchange httpExchange){}
+    private void processPost(HttpExchange httpExchange){
+        String path = httpExchange.getRequestURI().getPath().substring("POST".length());
+    }
 
     private void processDefault(HttpExchange httpExchange){}
 
