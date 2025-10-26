@@ -1,4 +1,4 @@
 package com.libraryapi.repository;
 
-public interface bookRepository {
+public interface BookRepository {
 }
