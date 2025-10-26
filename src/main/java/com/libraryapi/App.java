@@ -15,19 +15,18 @@ public class App {
 
         try {
             server = HttpServer.create(
-                    new InetSocketAddress("0.0.0.0", Integer.parseInt(PORT)), 0
+                    new InetSocketAddress("0.0.0.0", Integer.parseInt(PORT)),
+                    0
+
             );
+            HttpContext homeController = server.createContext("/", new HomeController());
+            server.start();
+            System.out.println("[OK] Server ON");
         }
         catch (IOException e) {
+            System.out.println("[DANGER][ERROR] Server OFFLINE");
             e.printStackTrace();
             throw new RuntimeException(e);
-        }
-        finally {
-            if (server!=null){
-                HttpContext homeController = server.createContext("/", new HomeController());
-                server.start();
-                System.out.println("[OK] Server ON");
-            }
         }
     }
 }
