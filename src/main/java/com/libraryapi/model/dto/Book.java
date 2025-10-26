@@ -1,4 +1,4 @@
-package com.libraryapi.repository;
+package com.libraryapi.model.dto;
 
 public class Book {
     private String title;
