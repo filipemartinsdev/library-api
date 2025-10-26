@@ -1,5 +1,6 @@
 package com.libraryapi;
 
+import com.libraryapi.controller.HomeController;
 import com.sun.net.httpserver.HttpServer;
 import com.sun.net.httpserver.HttpContext;
 import com.sun.net.httpserver.HttpExchange;
@@ -23,6 +24,7 @@ public class App {
         }
         finally {
             if (server!=null){
+                HttpContext homeController = server.createContext("/", new HomeController());
                 server.start();
                 System.out.println("[OK] Server ON");
             }
